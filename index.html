@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iOS secure DNS</title>
+    <script src="FileSaver.min.js"></script>
+    <script>
+
+		function saveDynamicDataToFile() {
+
+            var encryption = document.getElementsByName('encryption');
+            var encValue = null;
+            
+            for (var i = 0, length = encryption.length; i < length; i++) {
+                if (encryption[i].checked) {
+                    encValue = encryption[i].value;
+                    // only one radio can be logically checked, don't check the rest
+                    break;
+                }
+            }
+			
+            //var blob = new Blob([userInput], { type: "text/plain;charset=utf-8" });
+            var blob = new Blob(["<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n<key>PayloadContent</key>\n<array>\n<dict>\n<key>DNSSettings</key>\n<dict>\n<key>DNSProtocol</key>\n<string>" + encValue + "</string>\n<key>ServerAddresses</key>\n<array>\n"], { type: "text/plain;charset=utf-8" });
+            saveAs(blob, "dns.mobileconfig");
+            //https://github.com/paulmillr/encrypted-dns/blob/master/cloudflare-https.mobileconfig
+            //Currently Line 13 done
+            //https://github.com/paulmillr/encrypted-dns/blob/master/cloudflare-tls.mobileconfig
+            
+            //TODO: Premade configs! Fill in fields
+        }
+
+    </script>
+</head>
+<body>
+    
+    <p>
+        <input type="radio" id="doh" name="encryption" value="HTTPS">
+        <label for="doh">DNS-over-HTTPS (DoH)</label><br>
+        <input type="radio" id="dot" name="encryption" value="TLS">
+        <label for="dot">DNS-over-TLS (DoT)</label>
+    </p>
+    
+    <p>
+        
+    </p>
+
+    <button type="button" onclick="saveDynamicDataToFile();">Click to Save</button>
+	
+</body>
+</html>
