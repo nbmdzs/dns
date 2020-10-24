@@ -39,18 +39,6 @@ function getRegDNS() {
         return "";
     }
 }
-    
-function createServerUrl(encValue) {
-    var returnstring = "";
-    
-    if (encValue == "HTTPS") {
-        returnstring = "https://" + document.getElementById("serverUrl").value + "\n";
-    }
-    else {
-        returnstring = document.getElementById("serverUrl").value + "\n";
-    }
-    return returnstring;
-}
 
 function saveDynamicDataToFile() {
     var encryption = document.getElementsByName('encryption');
@@ -78,7 +66,7 @@ function saveDynamicDataToFile() {
     fileString += "<string>" + encValue + "</string>\n";
     fileString += getRegDNS();
     fileString += "<key>ServerURL</key>\n";
-    fileString += "<string>" + createServerUrl(encValue);
+    fileString += "<string>" + document.getElementById("serverUrl").value + "</string>\n";
     fileString += "</dict>\n";
     fileString += "<key>PayloadDescription</key>\n";
     fileString += "<string>Configures device to use " + provName + " Encrypted DNS over " + encValue + "</string>\n";
@@ -116,9 +104,6 @@ function saveDynamicDataToFile() {
     var blob = new Blob([fileString], { type: "text/plain;charset=utf-8" });
 
     saveAs(blob, "dns.mobileconfig");
-
-//TODO: Premade configs! Fill in fields
-//TODO: Check for HTTPS in server field
 }
         
 function switchToHTTPS() {

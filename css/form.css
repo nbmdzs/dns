@@ -8,6 +8,11 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
+.optional::before {
+  content: "optional ";
+  color: grey
+}
+
 input[type=submit] {
   width: 100%;
   background-color: #4CAF50;
@@ -22,3 +27,4 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #45a049;
 }
+
