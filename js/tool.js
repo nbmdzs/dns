@@ -86,7 +86,7 @@ function saveDynamicDataToFile() {
     fileString += "</array>\n";
     fileString += "<key>PayloadDescription</key>\n";
     fileString += "<string>Adds " + provName + " Encrypted DNS over " + encValue + " to Big Sur and iOS 14 based systems</string>\n";
-    fileString += "<key>PayloadDisplayName</key>\n<string>" + provName + " DNS over " + encValue + "</string>\n";
+    fileString += "<key>PayloadDisplayName</key>\n";
     fileString += "<string>" + provName + " DNS over " + encValue + "</string>\n";
     fileString += "<key>PayloadIdentifier</key>\n";
     fileString += "<string>com.notjakob.apple-dns</string>\n";
@@ -100,7 +100,7 @@ function saveDynamicDataToFile() {
     fileString += "<integer>1</integer>\n";
     fileString += "</dict>\n";
     fileString += "</plist>";
-
+    
     var blob = new Blob([fileString], { type: "text/plain;charset=utf-8" });
 
     saveAs(blob, "dns.mobileconfig");
