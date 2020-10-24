@@ -73,7 +73,7 @@ function saveDynamicDataToFile() {
     fileString += "<key>PayloadDisplayName</key>\n";
     fileString += "<string>" + provName + " DNS over " + encValue + "</string>\n";
     fileString += "<key>PayloadIdentifier</key>\n";
-    fileString += "<string>com.apple.dnsSettings.managed." + uuidv4() + "\n";
+    fileString += "<string>com.apple.dnsSettings.managed." + uuidv4() + "</string>\n";
     fileString += "<key>PayloadType</key>\n";
     fileString += "<string>com.apple.dnsSettings.managed</string>\n";
     fileString += "<key>PayloadUUID</key>\n";
