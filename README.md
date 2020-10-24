@@ -14,4 +14,5 @@ This tool can generate these profiles from provided data and also provides some 
 ## Thanks
 
 - Eli Grey for [FileSaver.js](https://github.com/eligrey/FileSaver.js)
+- [UUIDjs](https://github.com/uuidjs/uuid)
 - Paul Miller for [his excellent article](https://paulmillr.com/posts/encrypted-dns/) and the [premade profiles](https://github.com/paulmillr/encrypted-dns).
