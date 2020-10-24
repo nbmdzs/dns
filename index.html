@@ -6,72 +6,36 @@
     <title>DNS Profile Creator</title>
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="css/form.css">
-    <script src="js/FileSaver.min.js"></script>
-    <script src="js/uuidv4.min.js"></script>
-    <script src="js/tool.min.js"></script>
 </head>
 <body class="w3-container">
     <h1>Secure DNS profile creator</h1>
     <h2>For iOS 14 or later and macOS Big Sur or later</h2>
     
-    <select name="premades" id="premades" onchange="loadPremade()">
-        <option value="custom">&lt;custom&gt;</option>
-        <optgroup label="AdGuard">
-            <option value="adguard-https">AdGuard DoH</option>
-        </optgroup>
-        <optgroup label="Alibaba">
-            <option value="alibaba-https">Alibaba DoH</option>
-        </optgroup>
-        <optgroup label="Cloudflare">
-            <option value="cloudflare-https">Cloudflare DoH</option>
-            <option value="cloudflare-tls">Cloudflare DoT</option>
-            <option value="cloudflare-security-https">Cloudflare Malware blocking DoH</option>
-            <option value="cloudflare-security-tls">Cloudflare Malware blocking DoT</option>
-            <option value="cloudflare-family-https">Cloudflare Malware &amp; Adult blocking DoH</option>
-            <option value="cloudflare-family-tls">Cloudflare Malware &amp; Adult blocking DoT</option>
-        </optgroup>
-        <optgroup label="DNSPOD">
-            <option value="dnspod-https">DNSPOD DoH</option>
-        </optgroup>
-        <optgroup label="Google">
-            <option value="google-https">Google DoH</option>
-            <option value="google-tls">Google DoT</option>
-        </optgroup>
-        <optgroup label="OpenDNS">
-            <option value="opendns-https">OpenDNS DoH</option>
-        </optgroup>
-        <optgroup label="Quad9">
-            <option value="quad9-https">Quad9 DoH</option>
-            <option value="quad9-tls">Quad9 DoT</option>
-        </optgroup>
-    </select>
+    <div class="w3-bar w3-border w3-light-grey">
+        <a href="/index.html" class="w3-bar-item w3-button w3-green">About</a>
+        <a href="/tool.html" class="w3-bar-item w3-button">Tool</a>
+    </div>
     
-    <form action="javascript:saveDynamicDataToFile()">
-        <p>
-            <label for="provName">Name of DNS provider:</label>
-            <input type="text" id="provName" placeholder="MyCoolSecureProvider" required>
-        </p>
-        <p>
-            <input type="radio" id="doh" name="encryption" value="HTTPS" onclick="switchToHTTPS()" checked="checked" required>
-            <label for="doh">DNS-over-HTTPS (DoH)</label><br>
-            <input type="radio" id="dot" name="encryption" value="TLS" onclick="switchToTLS()" required>
-            <label for="dot">DNS-over-TLS (DoT)</label>
-        </p>
-        <p>
-            <label for="dns1v4" class="optional">IPv4 primary DNS:</label>
-            <input type="text" id="dns1v4" placeholder="0.0.0.0">
-            <label for="dns2v4" class="optional">IPv4 secondary DNS:</label>
-            <input type="text" id="dns2v4" placeholder="0.0.0.1">
-            <label for="dns1v6" class="optional">IPv6 primary DNS:</label>
-            <input type="text" id="dns1v6" placeholder="0000:0000:0000:0000:0000:0000:0000:0000 - other formats also accepted">
-            <label for="dns2v6" class="optional">IPv6 secondary DNS:</label>
-            <input type="text" id="dns2v6" placeholder="0000:0000:0000:0000:0000:0000:0000:0001 - other formats also accepted">
-        </p>
-        <p>
-            <label for="serverUrl" id="dohdotServerLabel">DoH server URL:</label>
-            <input type="text" id="serverUrl" placeholder="https://example.com/query" required>
-        </p>
-        <input type="submit" class="button1" value="Download profile">
-    </form>
+    <br>
+    
+    <h3>What is this?</h3>
+    <p>This website allows you to create configuration profiles for your Apple device to use the new built-in encrypted DNS options.</p>
+    <h3>Details</h3>
+    <p>Apple has included built-in support for DNS-over-HTTPS and DNS-over-TLS in their iOS 14 and macOS Big Sur updates. But there is no possibility to use this new feature without a third-party app or configuration profiles. I personally preferred not to install some app to manage this for me. <br>
+    This websites generates a configuration profile which is installable on your system and activates encrypted DNS.</p>
+    <h4>Why not use an app?</h4>
+    <p>I prefer to use tools which I can make sure do exactly what they claim to do. Configuration profiles are rather transparent, they can be opened with any text editor and viewed. This website is completely open-source. <br>
+    An app off the App Store might do what it should, sure. But it also might capture data inbetween and negate the privacy advantage that DoH and DoT bring.</p>
+    <h3>Why should I care about encrypted DNS?</h3>
+    <p>DNS is basically the phone book of the internet. If you visit a website, your computer first contacts the DNS server to look up where its even supposed to connect to.<br>
+    While the traffic itself is often encrypted nowadays, the lookup itself still is not without DoH/DoT. So anyone in the same network will still know exactly which websites you visited.<br>
+    If you want to know more about this, give <a href="https://paulmillr.com/posts/encrypted-dns/">this blog post by Paul Miller</a> a read, he explains the subject very nicely.</p>
+    <h3>DNS-over-HTTPS or DNS-over-TLS?</h3>
+    <p>There isn't a huge difference between the two protocols.<br>
+    DoH is harder to spot in regular network traffic and is also less likely to be blocked in a corporate environment, since it uses the same port as any secured website.<br>
+    DoT is possibly faster, since it uses one layer of transport less. But it uses it's own port and is therefore obvious to any other people monitoring the network - and might be blocked behind very strict firewalls.</p>
+    <p>In the end, it's more personal preference than anything else. If your system supports both - as Apple systems do - you can choose whatever you want.</p>
+    <h3>Which provider should I choose?</h3>
+    <p>This comes down to a few factors. First, location. Living in countries which block certain websites narrows your choice down considerably. Furthermore, different providers have different priorities. I suggest you do some research into the providers yourself. For example, you could take a look at <a href="https://www.privacytools.io/providers/dns/">this table</a> which lists a few providers and compares them.</p>
 </body>
 </html>

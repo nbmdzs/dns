@@ -143,6 +143,24 @@ function loadPremade() {
             dns2v6.value = "2400:3200:baba::1";
             serverUrl.value = "https://dns.alidns.com/dns-query";
             break;
+        case "applied-privacy-https":
+            provName.value = "Applied Privacy";
+            checkDoH.checked = true;
+            dns1v4.value = "146.255.56.98";
+            dns2v4.value = "";
+            dns1v6.value = "2a02:1b8:10:234::2";
+            dns2v6.value = "";
+            serverUrl.value = "https://doh.applied-privacy.net/query";
+            break;
+        case "applied-privacy-tls":
+            provName.value = "Applied Privacy";
+            checkDoT.checked = true;
+            dns1v4.value = "146.255.56.98";
+            dns2v4.value = "";
+            dns1v6.value = "2a02:1b8:10:234::2";
+            dns2v6.value = "";
+            serverUrl.value = "dot1.applied-privacy.net";
+            break;
         case "cloudflare-https":
             provName.value = "Cloudflare";
             checkDoH.checked = true;

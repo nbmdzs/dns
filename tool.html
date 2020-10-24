@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DNS Profile Creator</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="js/FileSaver.min.js"></script>
+    <script src="js/uuidv4.min.js"></script>
+    <script src="js/tool.js"></script>
+</head>
+<body class="w3-container">
+    <h1>Secure DNS profile creator</h1>
+    <h2>For iOS 14 or later and macOS Big Sur or later</h2>
+    
+    <div class="w3-bar w3-border w3-light-grey">
+        <a href="/" class="w3-bar-item w3-button">About</a>
+        <a href="/tool.html" class="w3-bar-item w3-button w3-green">Tool</a>
+    </div>
+    
+    <br>
+    
+    <h4>Choose a pre-configured provider, or enter your own settings:</h4>
+    <select name="premades" id="premades" onchange="loadPremade()">
+        <option value="custom">&lt;custom&gt;</option>
+        <optgroup label="AdGuard">
+            <option value="adguard-https">AdGuard DoH</option>
+        </optgroup>
+        <optgroup label="Alibaba">
+            <option value="alibaba-https">Alibaba DoH</option>
+        </optgroup>
+        <optgroup label="Applied Privacy">
+            <option value="applied-privacy-https">Applied Privacy DoH</option>
+            <option value="applied-privacy-tls">Applied Privacy DoT</option>
+        </optgroup>
+        <optgroup label="Cloudflare">
+            <option value="cloudflare-https">Cloudflare DoH</option>
+            <option value="cloudflare-tls">Cloudflare DoT</option>
+            <option value="cloudflare-security-https">Cloudflare Malware blocking DoH</option>
+            <option value="cloudflare-security-tls">Cloudflare Malware blocking DoT</option>
+            <option value="cloudflare-family-https">Cloudflare Malware &amp; Adult blocking DoH</option>
+            <option value="cloudflare-family-tls">Cloudflare Malware &amp; Adult blocking DoT</option>
+        </optgroup>
+        <optgroup label="DNSPOD">
+            <option value="dnspod-https">DNSPOD DoH</option>
+        </optgroup>
+        <optgroup label="Google">
+            <option value="google-https">Google DoH</option>
+            <option value="google-tls">Google DoT</option>
+        </optgroup>
+        <optgroup label="OpenDNS">
+            <option value="opendns-https">OpenDNS DoH</option>
+        </optgroup>
+        <optgroup label="Quad9">
+            <option value="quad9-https">Quad9 DoH</option>
+            <option value="quad9-tls">Quad9 DoT</option>
+        </optgroup>
+    </select>
+    
+    <form action="javascript:saveDynamicDataToFile()">
+        <p>
+            <label for="provName">Name of DNS provider:</label>
+            <input type="text" id="provName" placeholder="MyCoolSecureProvider" required>
+        </p>
+        <p>
+            <input type="radio" id="doh" name="encryption" value="HTTPS" onclick="switchToHTTPS()" checked="checked" required>
+            <label for="doh">DNS-over-HTTPS (DoH)</label><br>
+            <input type="radio" id="dot" name="encryption" value="TLS" onclick="switchToTLS()" required>
+            <label for="dot">DNS-over-TLS (DoT)</label>
+        </p>
+        <p>
+            <label for="dns1v4" class="optional">IPv4 primary DNS:</label>
+            <input type="text" id="dns1v4" placeholder="0.0.0.0">
+            <label for="dns2v4" class="optional">IPv4 secondary DNS:</label>
+            <input type="text" id="dns2v4" placeholder="0.0.0.1">
+            <label for="dns1v6" class="optional">IPv6 primary DNS:</label>
+            <input type="text" id="dns1v6" placeholder="0000:0000:0000:0000:0000:0000:0000:0000 - other formats also accepted">
+            <label for="dns2v6" class="optional">IPv6 secondary DNS:</label>
+            <input type="text" id="dns2v6" placeholder="0000:0000:0000:0000:0000:0000:0000:0001 - other formats also accepted">
+        </p>
+        <p>
+            <label for="serverUrl" id="dohdotServerLabel">DoH server URL:</label>
+            <input type="text" id="serverUrl" placeholder="https://example.com/query" required>
+        </p>
+        <input type="submit" class="button1" value="Download profile">
+    </form>
+</body>
+</html>
