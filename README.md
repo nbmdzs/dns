@@ -9,7 +9,7 @@ Encrypted DNS is getting more and more mainstream. With the release of iOS 14, A
 
 This tool can generate these profiles from provided data and also provides some premade configurations.
 
-For more information, see the website of the tool itself: https://dns.jakobsenkl.pw
+For more information, see the website of the tool itself: https://dns.notjakob.com
 
 ## Thanks
 
