@@ -14,6 +14,6 @@ For more information, see the website of the tool itself: https://dns.notjakob.c
 ## Thanks
 
 - Eli Grey for [FileSaver.js](https://github.com/eligrey/FileSaver.js)
-- uuidjs for the [UUID JavaScript module](https://github.com/uuidjs/uuid)
+- uuidjs for the [UUID JavaScript library](https://github.com/uuidjs/uuid)
 - Paul Miller for [his excellent article](https://paulmillr.com/posts/encrypted-dns/) and the [premade profiles](https://github.com/paulmillr/encrypted-dns)
 - W3schools for [w3.css](https://www.w3schools.com/w3css/)

@@ -10,54 +10,21 @@
     <script src="js/uuidv4.min.js"></script>
     <script src="js/tool.js"></script>
 </head>
-<body class="w3-container">
+<body class="w3-container" onload="loadPremade()">
     <h1>Secure DNS profile creator</h1>
     <h2>For iOS 14 or later and macOS Big Sur or later</h2>
     
     <div class="w3-bar w3-border w3-light-grey">
         <a href="/" class="w3-bar-item w3-button">About</a>
         <a href="/tool.html" class="w3-bar-item w3-button w3-green">Tool</a>
-        <a href="https://github.com/fyr77/dns-mobileconfig" class="w3-bar-item w3-button w3-right w3-dark-grey">GitHub</a>
+        <a href="/premades.html" class="w3-bar-item w3-button">Pre-made profiles</a>
+        <a href="https://github.com/fyr77/dns-mobileconfig" class="w3-bar-item w3-button w3-right w3-black">GitHub</a>
+        <a href="/legal.html" class="w3-bar-item w3-button w3-right">Legal</a>
     </div>
     
     <br>
     
-    <h4>Choose a pre-configured provider, or enter your own settings:</h4>
-    <select name="premades" id="premades" onchange="loadPremade()">
-        <option value="custom">&lt;custom&gt;</option>
-        <optgroup label="AdGuard">
-            <option value="adguard-https">AdGuard DoH</option>
-        </optgroup>
-        <optgroup label="Alibaba">
-            <option value="alibaba-https">Alibaba DoH</option>
-        </optgroup>
-        <optgroup label="Applied Privacy">
-            <option value="applied-privacy-https">Applied Privacy DoH</option>
-            <option value="applied-privacy-tls">Applied Privacy DoT</option>
-        </optgroup>
-        <optgroup label="Cloudflare">
-            <option value="cloudflare-https">Cloudflare DoH</option>
-            <option value="cloudflare-tls">Cloudflare DoT</option>
-            <option value="cloudflare-security-https">Cloudflare Malware blocking DoH</option>
-            <option value="cloudflare-security-tls">Cloudflare Malware blocking DoT</option>
-            <option value="cloudflare-family-https">Cloudflare Malware &amp; Adult blocking DoH</option>
-            <option value="cloudflare-family-tls">Cloudflare Malware &amp; Adult blocking DoT</option>
-        </optgroup>
-        <optgroup label="DNSPOD">
-            <option value="dnspod-https">DNSPOD DoH</option>
-        </optgroup>
-        <optgroup label="Google">
-            <option value="google-https">Google DoH</option>
-            <option value="google-tls">Google DoT</option>
-        </optgroup>
-        <optgroup label="OpenDNS">
-            <option value="opendns-https">OpenDNS DoH</option>
-        </optgroup>
-        <optgroup label="Quad9">
-            <option value="quad9-https">Quad9 DoH</option>
-            <option value="quad9-tls">Quad9 DoT</option>
-        </optgroup>
-    </select>
+    <h4><a href="/premades.html">Choose a pre-configured provider</a>, or enter your own settings:</h4>
     
     <form action="javascript:saveDynamicDataToFile()">
         <p>

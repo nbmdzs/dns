@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DNS Profile Creator</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="js/listPage.js"></script>
+</head>
+<body class="w3-container">
+    <h1>Secure DNS profile creator</h1>
+    <h2>For iOS 14 or later and macOS Big Sur or later</h2>
+    
+    <div class="w3-bar w3-border w3-light-grey">
+        <a href="/index.html" class="w3-bar-item w3-button">About</a>
+        <a href="/tool.html" class="w3-bar-item w3-button">Tool</a>
+        <a href="/premades.html" class="w3-bar-item w3-button w3-green">Pre-made profiles</a>
+        <a href="https://github.com/fyr77/dns-mobileconfig" class="w3-bar-item w3-button w3-right w3-black">GitHub</a>
+        <a href="/legal.html" class="w3-bar-item w3-button w3-right">Legal</a>
+    </div>
+    
+    <br>
+    
+    <h3>Submit a new configuration</h3>
+    <p>If you want to submit a new configuration to include here, please submit all necessary data using <a href="https://forms.gle/BdMc2abzpNGpRLJ46" target="_blank">this form</a>.</p>
+    
+    <h3>Pre-made configurations</h3>
+    <button onclick="accToggle('adguard')" class="w3-button w3-block w3-left-align w3-teal">AdGuard</button>
+        <div id="adguard" class="w3-hide">
+            <p><a href="https://adguard.com/en/adguard-dns/overview.html" target="_blank">Homepage</a><br>
+            Logging: <a href="https://adguard.com/en/privacy/dns.html" target="_blank">Some</a><br>
+            Protocols: DoH, DoT</p>
+            <h3>Default configuration</h3>
+            <p>Adblocker</p>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard', true, '94.140.14.14', '94.140.15.15', '2a10:50c0::ad1:ff', '2a10:50c0::ad2:ff', 'https://dns.adguard.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard', false, '94.140.14.14', '94.140.15.15', '2a10:50c0::ad1:ff', '2a10:50c0::ad2:ff', 'dns.adguard.com');">Import DoT</button>
+            <h3>Family configuration</h3>
+            <p>Adblocker and adult content blocker</p>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard Family', true, '94.140.14.15', '94.140.15.16', '2a10:50c0::bad1:ff', '2a10:50c0::bad2:ff', 'https://dns-family.adguard.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard Family', false, '94.140.14.15', '94.140.15.16', '2a10:50c0::bad1:ff', '2a10:50c0::bad2:ff', 'dns-family.adguard.com');">Import DoT</button>
+            <h3>No-Filter configuration</h3>
+            <p>Encrypted DNS without any filters</p>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard No-Filter', true, '94.140.14.140', '94.140.14.141', '2a10:50c0::1:ff', '2a10:50c0::2:ff', 'https://dns-unfiltered.adguard.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard No-Filter', false, '94.140.14.140', '94.140.14.141', '2a10:50c0::1:ff', '2a10:50c0::2:ff', 'dns-unfiltered.adguard.com');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('blahdns')" class="w3-button w3-block w3-left-align w3-green">BlahDNS</button>
+        <div id="blahdns" class="w3-hide">
+            <p><a href="https://blahdns.com/" target="_blank">Homepage</a><br>
+            Logging: None<br>
+            Protocols: DoH, DoT</p>
+            <h3>Adblock</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Adblock', true, '', '', '', '', 'https://doh1.blahdns.com/dns-query');">Import DoH Server 1</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Adblock', true, '', '', '', '', 'https://doh2.blahdns.com/dns-query');">Import DoH Server 2</button>
+            <h3>Uncensor</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Uncensor', true, '', '', '', '', 'https://doh1.blahdns.com/uncensor');">Import DoH Server 1</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Uncensor', true, '', '', '', '', 'https://doh2.blahdns.com/uncensor');">Import DoH Server 2</button>
+            <h3>Location: Japan</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Japan', true, '', '', '', '', 'https://doh-jp.blahdns.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Japan', false, '45.32.55.94', '', '2001:19f0:7001:3259:5400:02ff:fe71:0bc9', '', 'dot-jp.blahdns.com');">Import DoT</button>
+            <h3>Location: Singapore</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Singapore', true, '', '', '', '', 'https://doh-sg.blahdns.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Singapore', false, '139.180.141.57', '', '2001:19f0:4400:6bed:5400:2ff:feb1:f9fa', '', 'dot-sg.blahdns.com');">Import DoT</button>
+            <h3>Location: Germany</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Germany', true, '', '', '', '', 'https://doh-de.blahdns.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Germany', false, '45.32.55.94', '', '2001:19f0:7001:3259:5400:02ff:fe71:0bc9', '', 'dot-jp.blahdns.com');">Import DoT</button>
+            <h3>Location: Finland</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Finland', true, '', '', '', '', 'https://doh-fi.blahdns.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Finland', false, '95.216.212.177', '', '2a01:4f9:c010:43ce::1', '', 'dot-fi.blahdns.com');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('cloudflare')" class="w3-button w3-block w3-left-align w3-teal">Cloudflare</button>
+        <div id="cloudflare" class="w3-hide">
+            <p><a href="https://1.1.1.1/dns/" target="_blank">Homepage</a><br>
+            Logging: <a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver">Some</a><br>
+            Protocols: DoH, DoT</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Cloudflare', true, '1.1.1.1', '1.0.0.1', '2606:4700:4700::1111', '2606:4700:4700::1001', 'https://cloudflare-dns.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Cloudflare', false, '1.1.1.1', '1.0.0.1', '2606:4700:4700::1111', '2606:4700:4700::1001', 'cloudflare-dns.com');">Import DoT</button>
+            <h3>Security configuration</h3>
+            <p>Blocks known malicious sites.</p>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Cloudflare Security', true, '1.1.1.2', '1.0.0.2', '2606:4700:4700::1112', '2606:4700:4700::1002', 'https://security.cloudflare-dns.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Cloudflare Security', false, '1.1.1.2', '1.0.0.2', '2606:4700:4700::1112', '2606:4700:4700::1002', 'security.cloudflare-dns.com');">Import DoT</button>
+            <h3>Family configuration</h3>
+            <p>Blocks known malicious and adult sites.</p>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Cloudflare Family', true, '1.1.1.3', '1.0.0.3', '2606:4700:4700::1113', '2606:4700:4700::1003', 'https://family.cloudflare-dns.com/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Cloudflare Family', false, '1.1.1.3', '1.0.0.3', '2606:4700:4700::1113', '2606:4700:4700::1003', 'family.cloudflare-dns.com');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('google')" class="w3-button w3-block w3-left-align w3-green">Google</button>
+        <div id="google" class="w3-hide">
+            <p><a href="https://developers.google.com/speed/public-dns/" target="_blank">Homepage</a><br>
+            Logging: <a href="https://developers.google.com/speed/public-dns/privacy">Yes</a><br>
+            Protocols: DoH, DoT</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Google', true, '8.8.8.8', '8.8.4.4', '2001:4860:4860::8888', '2001:4860:4860::8844', 'https://dns.google/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Google', false, '8.8.8.8', '8.8.4.4', '2001:4860:4860::8888', '2001:4860:4860::8844', 'dns.google');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('libredns')" class="w3-button w3-block w3-left-align w3-teal">LibreDNS</button>
+        <div id="libredns" class="w3-hide">
+            <p><a href="https://libredns.gr/" target="_blank">Homepage</a><br>
+            Logging: No<br>
+            Protocols: DoH, DoT</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('LibreDNS', true, '', '', '', '', 'https://doh.libredns.gr/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('LibreDNS', false, '116.202.176.26', '', '', '', 'dot.libredns.gr');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('opendns')" class="w3-button w3-block w3-left-align w3-green">OpenDNS</button>
+        <div id="opendns" class="w3-hide">
+            <p><a href="https://support.opendns.com/hc/en-us/articles/360038086532-Using-DNS-over-HTTPS-DoH-with-OpenDNS" target="_blank">Homepage</a><br>
+            Logging: <a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html">Some</a><br>
+            Protocols: DoH</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('OpenDNS', true, '208.67.222.222', '208.67.220.220', '2620:119:35::35', '2620:119:53::53', 'https://doh.opendns.com/dns-query');">Import</button>
+            <h3>Family configuration</h3>
+            <p>Blocks known adult sites.</p>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('OpenDNS Family', true, '208.67.222.123', '208.67.220.123', '2620:119:35::123', '2620:119:53::123 ', 'https://doh.familyshield.opendns.com/dns-query');">Import</button>
+        </div>
+    <br>
+    <button onclick="accToggle('powerdns')" class="w3-button w3-block w3-left-align w3-teal">PowerDNS</button>
+        <div id="powerdns" class="w3-hide">
+            <p><a href="https://powerdns.org/" target="_blank">Homepage</a><br>
+            Logging: No<br>
+            Protocols: DoH</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('PowerDNS', true, '', '', '', '', 'https://doh.powerdns.org/');">Import</button>
+        </div>
+    <br>
+    <button onclick="accToggle('quad9')" class="w3-button w3-block w3-left-align w3-green">Quad9</button>
+        <div id="quad9" class="w3-hide">
+            <p><a href="https://quad9.net/" target="_blank">Homepage</a><br>
+            Logging: <a href="https://quad9.net/policy/">Some</a><br>
+            Protocols: DoH, DoT</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Quad9', true, '9.9.9.9', '149.112.112.112', '2620:fe::fe', '2620:fe::9', 'https://dns.quad9.net/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Quad9', false, '9.9.9.9', '149.112.112.112', '2620:fe::fe', '2620:fe::9', 'dns.quad9.net');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('snopyta')" class="w3-button w3-block w3-left-align w3-teal">Snopyta</button>
+        <div id="snopyta" class="w3-hide">
+            <p><a href="https://snopyta.org/service/dns/" target="_blank">Homepage</a><br>
+            Logging: No<br>
+            Protocols: DoH, DoT</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Snopyta', true, '', '', '', '', 'https://fi.doh.dns.snopyta.org/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Snopyta', false, '95.216.24.230', '', '2a01:4f9:2a:1919::9301', '', 'fi.dot.dns.snopyta.org');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('uncensoreddns')" class="w3-button w3-block w3-left-align w3-green">UncensoredDNS</button>
+        <div id="uncensoreddns" class="w3-hide">
+            <p><a href="https://blog.uncensoreddns.org/dns-servers/" target="_blank">Homepage</a><br>
+            Logging: No<br>
+            Protocols: DoH, DoT</p>
+            <h3>Anycast</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('UncensoredDNS', true, '91.239.100.100', '', '2001:67c:28a4::', '', 'https://anycast.uncensoreddns.org/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('UncensoredDNS', false, '91.239.100.100', '', '2001:67c:28a4::', '', 'anycast.censurfridns.dk');">Import DoT</button>
+            <h3>Unicast</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('UncensoredDNS', true, '89.233.43.71', '', '2a01:3a0:53:53::', '', 'https://unicast.uncensoreddns.org/dns-query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('UncensoredDNS', false, '89.233.43.71', '', '2a01:3a0:53:53::', '', 'unicast.censurfridns.dk');">Import DoT</button>
+        </div>
+</body>
+</html>
