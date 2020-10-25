@@ -26,7 +26,7 @@
     <p>If you want to submit a new configuration to include here, please submit all necessary data using <a href="https://forms.gle/BdMc2abzpNGpRLJ46" target="_blank">this form</a>.</p>
     
     <h3>Pre-made configurations</h3>
-    <button onclick="accToggle('adguard')" class="w3-button w3-block w3-left-align w3-teal">AdGuard</button>
+    <button onclick="accToggle('adguard')" class="w3-button w3-block w3-left-align w3-green">AdGuard</button>
         <div id="adguard" class="w3-hide">
             <p><a href="https://adguard.com/en/adguard-dns/overview.html" target="_blank">Homepage</a><br>
             Logging: <a href="https://adguard.com/en/privacy/dns.html" target="_blank">Some</a><br>
@@ -43,6 +43,16 @@
             <p>Encrypted DNS without any filters</p>
             <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard No-Filter', true, '94.140.14.140', '94.140.14.141', '2a10:50c0::1:ff', '2a10:50c0::2:ff', 'https://dns-unfiltered.adguard.com/dns-query');">Import DoH</button>
             <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard No-Filter', false, '94.140.14.140', '94.140.14.141', '2a10:50c0::1:ff', '2a10:50c0::2:ff', 'dns-unfiltered.adguard.com');">Import DoT</button>
+        </div>
+    <br>
+    <button onclick="accToggle('applied-privacy')" class="w3-button w3-block w3-left-align w3-green">Applied Privacy</button>
+        <div id="applied-privacy" class="w3-hide">
+            <p><a href="https://applied-privacy.net/services/dns/" target="_blank">Homepage</a><br>
+            Logging: <a href="https://applied-privacy.net/privacy-policy/" target="_blank">Some</a><br>
+            Protocols: DoH, DoT</p>
+            <h3>Default configuration</h3>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('Applied Privacy', true, '', '', '', '', 'https://doh.applied-privacy.net/query');">Import DoH</button>
+            <button class="w3-button w3-dark-gray" onclick="createCookie ('AdGuard', false, '146.255.56.98', '', '2a02:1b8:10:234::2', '', 'dns.adguard.com');">Import DoT</button>
         </div>
     <br>
     <button onclick="accToggle('blahdns')" class="w3-button w3-block w3-left-align w3-green">BlahDNS</button>
@@ -70,7 +80,7 @@
             <button class="w3-button w3-dark-gray" onclick="createCookie ('BlahDNS Finland', false, '95.216.212.177', '', '2a01:4f9:c010:43ce::1', '', 'dot-fi.blahdns.com');">Import DoT</button>
         </div>
     <br>
-    <button onclick="accToggle('cloudflare')" class="w3-button w3-block w3-left-align w3-teal">Cloudflare</button>
+    <button onclick="accToggle('cloudflare')" class="w3-button w3-block w3-left-align w3-green">Cloudflare</button>
         <div id="cloudflare" class="w3-hide">
             <p><a href="https://1.1.1.1/dns/" target="_blank">Homepage</a><br>
             Logging: <a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver">Some</a><br>
@@ -98,7 +108,7 @@
             <button class="w3-button w3-dark-gray" onclick="createCookie ('Google', false, '8.8.8.8', '8.8.4.4', '2001:4860:4860::8888', '2001:4860:4860::8844', 'dns.google');">Import DoT</button>
         </div>
     <br>
-    <button onclick="accToggle('libredns')" class="w3-button w3-block w3-left-align w3-teal">LibreDNS</button>
+    <button onclick="accToggle('libredns')" class="w3-button w3-block w3-left-align w3-green">LibreDNS</button>
         <div id="libredns" class="w3-hide">
             <p><a href="https://libredns.gr/" target="_blank">Homepage</a><br>
             Logging: No<br>
@@ -120,7 +130,7 @@
             <button class="w3-button w3-dark-gray" onclick="createCookie ('OpenDNS Family', true, '208.67.222.123', '208.67.220.123', '2620:119:35::123', '2620:119:53::123 ', 'https://doh.familyshield.opendns.com/dns-query');">Import</button>
         </div>
     <br>
-    <button onclick="accToggle('powerdns')" class="w3-button w3-block w3-left-align w3-teal">PowerDNS</button>
+    <button onclick="accToggle('powerdns')" class="w3-button w3-block w3-left-align w3-green">PowerDNS</button>
         <div id="powerdns" class="w3-hide">
             <p><a href="https://powerdns.org/" target="_blank">Homepage</a><br>
             Logging: No<br>
@@ -139,7 +149,7 @@
             <button class="w3-button w3-dark-gray" onclick="createCookie ('Quad9', false, '9.9.9.9', '149.112.112.112', '2620:fe::fe', '2620:fe::9', 'dns.quad9.net');">Import DoT</button>
         </div>
     <br>
-    <button onclick="accToggle('snopyta')" class="w3-button w3-block w3-left-align w3-teal">Snopyta</button>
+    <button onclick="accToggle('snopyta')" class="w3-button w3-block w3-left-align w3-green">Snopyta</button>
         <div id="snopyta" class="w3-hide">
             <p><a href="https://snopyta.org/service/dns/" target="_blank">Homepage</a><br>
             Logging: No<br>
