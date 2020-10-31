@@ -10,7 +10,7 @@ input[type=text], select {
 
 .optional::before {
   content: "optional ";
-  color: grey
+  color: grey;
 }
 
 input[type=submit] {
