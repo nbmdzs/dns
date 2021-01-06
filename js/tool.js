@@ -92,7 +92,12 @@ function saveDynamicDataToFile() {
     fileString += "<key>DNSProtocol</key>\n";
     fileString += "<string>" + encValue + "</string>\n";
     fileString += getRegDNS();
-    fileString += "<key>ServerURL</key>\n";
+    if (encValue == "doh") {
+        fileString += "<key>ServerURL</key>\n";
+    }
+    else {
+        fileString += "<key>ServerName</key>\n";
+    }
     fileString += "<string>" + document.getElementById("serverUrl").value + "</string>\n";
     fileString += "</dict>\n";
     fileString += "<key>PayloadDescription</key>\n";
