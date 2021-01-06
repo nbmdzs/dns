@@ -154,9 +154,9 @@ function loadPremade() {
     var serverUrl = document.getElementById("serverUrl");
     
     provName.value = getCookie("provName");
-    if (getCookie("doh") == true) {
+    if (getCookie("doh") == "true") {
         checkDoH.checked = true;
-    } else if (getCookie("doh") == false) {
+    } else if (getCookie("doh") == "false") {
         checkDoT.checked = true;
     }
     dns1v4.value = getCookie("dns1v4");
