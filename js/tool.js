@@ -121,7 +121,7 @@ function saveDynamicDataToFile() {
     fileString += "<key>PayloadDisplayName</key>\n";
     fileString += "<string>" + provName + " DNS over " + encValue + "</string>\n";
     fileString += "<key>PayloadIdentifier</key>\n";
-    fileString += "<string>com.notjakob.apple-dns</string>\n";
+    fileString += "<string>com.notjakob.apple-dns." + uuidv4() + "</string>\n";
     fileString += "<key>PayloadRemovalDisallowed</key>\n";
     fileString += "<false/>\n";
     fileString += "<key>PayloadType</key>\n";
