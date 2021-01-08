@@ -37,23 +37,19 @@ function getRegDNS() {
     var dnsOverride = false;
 
     if (ip6format.test(dns1v6)) {
-        console.log("61valid!");
         dnsOverride = true;
         returnstring += "<string>" + dns1v6 + "</string>\n";
     }
     if (ip6format.test(dns2v6)) {
-        console.log("62valid!");
         dnsOverride = true;
         returnstring += "<string>" + dns2v6 + "</string>\n";
     }
     
     if (ip4format.test(dns1v4)) {
-        console.log("41valid!");
         dnsOverride = true;
         returnstring += "<string>" + dns1v4 + "</string>\n";
     }
     if (ip4format.test(dns2v4)) {
-        console.log("42valid!");
         dnsOverride = true;
         returnstring += "<string>" + dns2v4 + "</string>\n";
     }
@@ -92,7 +88,7 @@ function saveDynamicDataToFile() {
     fileString += "<key>DNSProtocol</key>\n";
     fileString += "<string>" + encValue + "</string>\n";
     fileString += getRegDNS();
-    if (encValue == "doh") {
+    if (encValue == "HTTPS") {
         fileString += "<key>ServerURL</key>\n";
     }
     else {
