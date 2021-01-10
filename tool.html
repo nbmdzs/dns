@@ -52,7 +52,30 @@
             <label for="serverUrl" id="dohdotServerLabel">DoH server URL:</label>
             <input type="text" id="serverUrl" placeholder="https://example.com/query" required>
         </p>
-        <input type="submit" class="button1" value="Download profile">
+        <input type="button" onclick="accordion()" class="w3-button w3-dark-grey w3-left-align" value="Advanced">
+        <div id="advanced_container" class="w3-hide w3-container">
+            <p>
+                <label for="exclWifi" class="optional">Excluded Wi-Fi Networks:</label>
+                <input type="text" id="exclWifi" placeholder="MyHomeNetwork, Silence of the LANs">
+                <span style="color: grey">Enter a comma-separated list of Wi-Fi networks (SSID) on which the encrypted DNS will be disabled.</span>
+            </p>
+            <p>
+                Interfaces to use encrypted DNS on: 
+                <label for="useWifi">Wi-Fi</label>
+                <input type="checkbox" id="useWifi" checked>
+                <label for="useCell">Cellular</label>
+                <input type="checkbox" id="useCell" checked>
+                <br>
+                <span style="color: grey">Untick to disable encrypted DNS when using WiFi/Cellular.</span>
+            </p>
+            <p>
+                <label for="lockProfile">Prohibit Disablement</label>
+                <input type="checkbox" id="lockProfile">
+                <br>
+                <span style="color: grey">Prohibit users from removing the profile. Only available on supervised devices.</span>
+            </p>
+        </div>
+        <p><input type="submit" class="button1" value="Download profile"></p>
     </form>
 </body>
 </html>

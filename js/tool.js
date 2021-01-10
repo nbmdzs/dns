@@ -75,6 +75,7 @@ function saveDynamicDataToFile() {
             break;
         }
     }
+    var exclWifi = document.getElementById("exclWifi");
         
     var fileString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     fileString += "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n";
@@ -96,6 +97,46 @@ function saveDynamicDataToFile() {
     }
     fileString += "<string>" + document.getElementById("serverUrl").value + "</string>\n";
     fileString += "</dict>\n";
+    fileString += "<key>OnDemandRules</key>\n";
+    if (exclWifi.value != "") {
+        fileString += "<array>\n";
+        fileString += "<dict>\n";
+        fileString += "<key>Action</key>\n";
+        fileString += "<string>Disconnect</string>\n";
+        fileString += "<key>SSIDMatch</key>\n"
+        fileString += "<array>\n";
+        exclWifi.value.split(/\s*,\s*/).forEach(function(wifiString) {
+            console.log(wifiString);
+            fileString += "<string>" + wifiString + "</string>\n";
+        });
+        fileString += "</array>\n";
+        fileString += "</dict>\n";
+        fileString += "<dict>\n";
+        fileString += "<key>Action</key>\n";
+        fileString += "<string>Connect</string>\n";
+        fileString += "</dict>\n";
+    }
+    if (document.getElementById("useWifi").checked) {
+        fileString += "<dict>\n";
+        fileString += "<key>Action</key>\n";
+        fileString += "<string>Connect</string>\n";
+        fileString += "<key>InterfaceTypeMatch</key>\n";
+        fileString += "<string>WiFi</string>\n";
+        fileString += "</dict>\n";
+    }
+    if (document.getElementById("useCell").checked) {
+        fileString += "<dict>\n";
+        fileString += "<key>Action</key>\n";
+        fileString += "<string>Connect</string>\n";
+        fileString += "<key>InterfaceTypeMatch</key>\n";
+        fileString += "<string>Cellular</string>\n";
+        fileString += "</dict>\n";
+    }
+    fileString += "<dict>\n";
+    fileString += "<key>Action</key>\n";
+    fileString += "<string>Disconnect</string>\n";
+    fileString += "</dict>\n";
+    fileString += "</array>\n";
     fileString += "<key>PayloadDescription</key>\n";
     fileString += "<string>Configures device to use " + provName + " Encrypted DNS over " + encValue + "</string>\n";
     fileString += "<key>PayloadDisplayName</key>\n";
@@ -109,7 +150,12 @@ function saveDynamicDataToFile() {
     fileString += "<key>PayloadVersion</key>\n";
     fileString += "<integer>1</integer>\n";
     fileString += "<key>ProhibitDisablement</key>\n";
-    fileString += "<false/>\n";
+    if (document.getElementById("lockProfile").checked) {
+        fileString += "<true/>\n";
+    }
+    else {
+        fileString += "<false/>\n";
+    }
     fileString += "</dict>\n";
     fileString += "</array>\n";
     fileString += "<key>PayloadDescription</key>\n";
@@ -165,4 +211,15 @@ function loadPremade() {
     dns1v6.value = getCookie("dns1v6");
     dns2v6.value = getCookie("dns2v6");
     serverUrl.value = getCookie("serverUrl");
+}
+function accordion() {
+    var adv = document.getElementById("advanced_container");
+    if (adv.className.indexOf("w3-show") == -1) {
+        adv.className += " w3-show";
+        adv.previousElementSibling.className = adv.previousElementSibling.className.replace("w3-dark-grey", "w3-black");
+    }
+    else {
+        adv.className = adv.className.replace(" w3-show", "");
+        adv.previousElementSibling.className = adv.previousElementSibling.className.replace("w3-black", "w3-dark-grey");
+    }
 }
