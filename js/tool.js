@@ -98,8 +98,8 @@ function saveDynamicDataToFile() {
     fileString += "<string>" + document.getElementById("serverUrl").value + "</string>\n";
     fileString += "</dict>\n";
     fileString += "<key>OnDemandRules</key>\n";
+    fileString += "<array>\n";
     if (exclWifi.value != "") {
-        fileString += "<array>\n";
         fileString += "<dict>\n";
         fileString += "<key>Action</key>\n";
         fileString += "<string>Disconnect</string>\n";
